@@ -1,0 +1,15 @@
+{
+  "name": "automated-testing-tic-tac-toe-game",
+  "version": "1.0.0",
+  "description": "This repository contains automated end-to-end (E2E) tests written in Cypress and JavaScript for a Tic Tac Toe game. The test suite ensures the game functions correctly across various scenarios, including player moves, win conditions, draws, and UI interactions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.2.0"
+  }
+}
