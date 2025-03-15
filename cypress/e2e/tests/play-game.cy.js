@@ -23,4 +23,8 @@ describe("Tic-Tac-Toe - Draw Game", () => {
   it("player one should win", () => {
     gameBoard.playGamePlayerOneWin();
   });
+
+  it("player two should win", () => {
+    gameBoard.playGamePlayerTwoWin();
+  });
 });

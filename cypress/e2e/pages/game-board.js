@@ -116,6 +116,46 @@ class GameBoard extends Page {
         this.gameEndMessage().should("contain.text", `You won, ${playerName}!`);
       });
   }
+
+  playGamePlayerTwoWin() {
+    this.fieldTopLeft()
+      .click()
+      .should("have.class", "disabled-x")
+      .and("have.text", "X");
+    this.fieldTopMiddle()
+      .click()
+      .should("have.class", "disabled-o")
+      .and("have.text", "O");
+    this.fieldTopRight()
+      .click()
+      .should("have.class", "disabled-x")
+      .and("have.text", "X");
+    this.fieldMiddleLeft()
+      .click()
+      .should("have.class", "disabled-o")
+      .and("have.text", "O");
+    this.fieldMiddleRight()
+      .click()
+      .should("have.class", "disabled-x")
+      .and("have.text", "X");
+    this.fieldMiddle()
+      .click()
+      .should("have.class", "disabled-o")
+      .and("have.text", "O");
+    this.fieldBottomLeft()
+      .click()
+      .should("have.class", "disabled-x")
+      .and("have.text", "X");
+    this.fieldBottomMiddle()
+      .click()
+      .should("have.class", "disabled-o")
+      .and("have.text", "O");
+    cy.get("#winner-player-name")
+      .invoke("text")
+      .then((playerName) => {
+        this.gameEndMessage().should("contain.text", `You won, ${playerName}!`);
+      });
+  }
 }
 
 export default GameBoard;
