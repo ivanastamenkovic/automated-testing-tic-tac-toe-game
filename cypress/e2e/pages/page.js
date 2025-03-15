@@ -18,6 +18,23 @@ class Page {
   }
 
   enterPlayerName() {}
+
+  startNewGameButton() {
+    return cy.get("#start-game-btn").should("have.text", "Start New Game");
+  }
+
+  activePlayerName() {
+    return cy.get("#active-player-name");
+  }
+
+  clickStartNewGameButton() {
+    this.startNewGameButton().click();
+    this.gameBoard().should("be.visible");
+  }
+
+  gameBoard() {
+    return cy.get("#game-board");
+  }
 }
 
 export default Page;
