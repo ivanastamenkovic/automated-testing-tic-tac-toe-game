@@ -11,12 +11,16 @@ const gameBoard = new GameBoard();
 describe("Tic-Tac-Toe - Draw Game", () => {
   beforeEach(() => {
     cy.visit("https://maximilian-tic-tac-toe-days-40-44.netlify.app/");
-  });
-
-  it("should end in a draw", () => {
     playerOne.enterPlayerName("Ivana");
     playerTwo.enterPlayerName("Jovana");
     page.clickStartNewGameButton();
+  });
+
+  it("should end in a draw", () => {
     gameBoard.playGameDraw();
+  });
+
+  it("player one should win", () => {
+    gameBoard.playGamePlayerOneWin();
   });
 });
