@@ -1,10 +1,6 @@
 import Page from "../pages/page";
-import PlayerOne from "../pages/player-one";
-import PlayerTwo from "../pages/player-two";
 
 const page = new Page();
-const playerOne = new PlayerOne();
-const playerTwo = new PlayerTwo();
 
 describe("Tic-Tac-Toe Game", () => {
   beforeEach(() => {
@@ -12,19 +8,14 @@ describe("Tic-Tac-Toe Game", () => {
   });
 
   it("should display correct player names after entering them", () => {
-    playerOne.enterPlayerName("Ivana");
-    playerTwo.enterPlayerName("Jovana");
+    page.enterPlayerName("player-1", "Ivana");
+    page.enterPlayerName("player-2", "Jovana");
   });
 
   it("should start new game after clicking the Start New Game button", () => {
-    playerOne.enterPlayerName("Ivana");
-    playerTwo.enterPlayerName("Jovana");
+    page.enterPlayerName("player-1", "Ivana");
+    page.enterPlayerName("player-2", "Jovana");
     page.clickStartNewGameButton();
-    playerOne
-    .playerOneName()
-    .invoke("text")
-    .then((expectedName) => {
-      page.activePlayerName().should("have.text", expectedName.trim());
-    });
+    page.verifyActivePlayer("#player-1-data h3");
   });
 });

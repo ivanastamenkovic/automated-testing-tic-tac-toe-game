@@ -17,7 +17,13 @@ class Page {
       .should("contain.text", "Confirm");
   }
 
-  enterPlayerName() {}
+  enterPlayerName(player, playerName) {
+    cy.get(`#edit-${player}-btn`).click();
+    this.playerNameInputField().clear().type(playerName);
+    this.submitPlayerNameButton().click();
+    this.playerNameOverlay().should("not.be.visible");
+    cy.get(`#${player}-data h3`).should("contain.text", playerName);
+  }
 
   startNewGameButton() {
     return cy.get("#start-game-btn").should("have.text", "Start New Game");
@@ -30,6 +36,14 @@ class Page {
   clickStartNewGameButton() {
     this.startNewGameButton().click();
     this.gameBoard().should("be.visible");
+  }
+
+  verifyActivePlayer(expectedPlayerSelector) {
+    cy.get(expectedPlayerSelector)
+      .invoke("text")
+      .then((expectedName) => {
+        this.activePlayerName().should("have.text", expectedName.trim());
+      });
   }
 
   gameBoard() {
