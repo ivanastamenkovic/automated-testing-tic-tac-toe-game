@@ -13,14 +13,42 @@ describe("Tic-Tac-Toe - Draw Game", () => {
   });
 
   it("should end in a draw", () => {
-    gameBoard.playGameDraw();
+    const moves = [
+      [1, 1, "disabled-x", "X"],
+      [2, 1, "disabled-o", "O"],
+      [3, 1, "disabled-x", "X"],
+      [1, 2, "disabled-o", "O"],
+      [3, 2, "disabled-x", "X"],
+      [2, 2, "disabled-o", "O"],
+      [2, 3, "disabled-x", "X"],
+      [3, 3, "disabled-o", "O"],
+      [1, 3, "disabled-x", "X"],
+    ];
+    gameBoard.playGameDraw(moves);
   });
 
   it("player one should win", () => {
-    gameBoard.playGamePlayerOneWin();
+    const moves = [
+      [1, 1, "disabled-x", "X"],
+      [2, 1, "disabled-o", "O"],
+      [3, 1, "disabled-x", "X"],
+      [1, 2, "disabled-o", "O"],
+      [2, 2, "disabled-x", "X"],
+      [3, 2, "disabled-o", "O"],
+      [1, 3, "disabled-x", "X"],
+    ];
+    gameBoard.playGameWin(moves);
   });
 
   it("player two should win", () => {
-    gameBoard.playGamePlayerTwoWin();
+    const moves = [
+      [1, 1, "disabled-x", "X"],
+      [1, 2, "disabled-o", "O"],
+      [2, 1, "disabled-x", "X"],
+      [2, 2, "disabled-o", "O"],
+      [3, 3, "disabled-x", "X"],
+      [3, 2, "disabled-o", "O"],
+    ];
+    gameBoard.playGameWin(moves);
   });
 });
